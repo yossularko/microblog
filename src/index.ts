@@ -1,10 +1,14 @@
 import express, { Request, Response } from "express";
 import createError from "http-errors";
+import feedRoute from "./routes/feedRoute";
 import userRoute from "./routes/userRoute";
 
 const app = express();
 
 app.use(express.json());
+
+// post routes
+app.use("/feed", feedRoute);
 
 // user routes
 app.use("/user", userRoute);
