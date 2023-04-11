@@ -20,3 +20,11 @@ export const postFeed = async (req: Request, res: Response) => {
   });
   res.json(result);
 };
+
+export const getFeedById = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const post = await prisma.post.findUnique({
+    where: { id: Number(id) },
+  });
+  res.json(post);
+};
