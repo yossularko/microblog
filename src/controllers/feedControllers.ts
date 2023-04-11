@@ -9,3 +9,14 @@ export const getFeeds = async (req: Request, res: Response) => {
   });
   res.json(posts);
 };
+
+export const postFeed = async (req: Request, res: Response) => {
+  const { content, authorEmail } = req.body;
+  const result = await prisma.post.create({
+    data: {
+      content,
+      author: { connect: { email: authorEmail } },
+    },
+  });
+  res.json(result);
+};
