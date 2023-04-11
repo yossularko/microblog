@@ -14,3 +14,11 @@ export const postUser = async (req: Request, res: Response) => {
   });
   res.json(result);
 };
+
+export const getUserByName = async (req: Request, res: Response) => {
+  const { username } = req.params;
+  const user = await prisma.user.findUnique({
+    where: { username: String(username) },
+  });
+  res.json(user);
+};
