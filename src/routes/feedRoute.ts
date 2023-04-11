@@ -1,5 +1,6 @@
 import express from "express";
 import {
+  deleteFeed,
   getFeedById,
   getFeeds,
   postFeed,
@@ -12,5 +13,6 @@ router.get("/", getFeeds);
 router.post("/", postFeed);
 router.get("/:id", getFeedById);
 router.put("/:id", updateFeed);
+router.delete("/:id", deleteFeed);
 
 export default router;

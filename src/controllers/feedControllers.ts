@@ -37,3 +37,11 @@ export const updateFeed = async (req: Request, res: Response) => {
   });
   res.json(post);
 };
+
+export const deleteFeed = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const post = await prisma.post.delete({
+    where: { id: Number(id) },
+  });
+  res.json(post);
+};
