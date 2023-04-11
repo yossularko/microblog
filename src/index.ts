@@ -1,9 +1,13 @@
 import express, { Request, Response } from "express";
 import createError from "http-errors";
+import userRoute from "./routes/userRoute";
 
 const app = express();
 
 app.use(express.json());
+
+// user routes
+app.use("/user", userRoute);
 
 // handle 404 error
 app.use((req: Request, res: Response, next: Function) => {
