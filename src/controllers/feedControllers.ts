@@ -28,3 +28,12 @@ export const getFeedById = async (req: Request, res: Response) => {
   });
   res.json(post);
 };
+
+export const updateFeed = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const post = await prisma.post.update({
+    where: { id: Number(id) },
+    data: { ...req.body },
+  });
+  res.json(post);
+};
